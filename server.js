@@ -15,7 +15,7 @@ app.post("/api/users", async (req, res) => {
   try {
    
     const result = await pool.query(
-      "INSERT INTO Users (username, email, phonenumber) VALUES ($1, $2, $3) RETURNING *",
+      "INSERT INTO public.Users (username, email, phonenumber) VALUES ($1, $2, $3) RETURNING *",
       [username, email, phonenumber]
     );
     console.log("Done")
@@ -36,7 +36,7 @@ app.post("/api/waitlist", async (req, res) => {
   try {
   
     const result = await pool.query(
-      "INSERT INTO waitlist (username, email, phonenumber) VALUES ($1, $2, $3) RETURNING *",
+      "INSERT INTO public.waitlist (username, email, phonenumber) VALUES ($1, $2, $3) RETURNING *",
       [username, email, phonenumber]
     );
     res.status(201).json({ message: "User inserted to waitlist", user: result.rows[0] });
