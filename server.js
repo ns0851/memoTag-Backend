@@ -1,5 +1,3 @@
-require('dns').setDefaultResultOrder('ipv4first');
-
 import express from 'express';
 import cors from 'cors';
 import pool from './db.js';
